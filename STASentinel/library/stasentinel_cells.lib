@@ -1,0 +1,13 @@
+library(STASentinel_cells) {
+  time_unit : "1ns";
+  voltage_unit : "1V";
+  capacitive_load_unit(1,pf);
+  cell(INV_X1) { area:1; pin(A){direction:input;} pin(Y){direction:output; function:"!A"; timing(){related_pin:"A"; timing_type:combinational; cell_rise(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.06");} cell_fall(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.06");}}}}
+  cell(INV_X2) { area:2; pin(A){direction:input;} pin(Y){direction:output; function:"!A"; timing(){related_pin:"A"; timing_type:combinational; cell_rise(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.04");} cell_fall(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.04");}}}}
+  cell(NAND2_X1) { area:2; pin(A){direction:input;} pin(B){direction:input;} pin(Y){direction:output; function:"!(A*B)"; timing(){related_pin:"A"; timing_type:combinational; cell_rise(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.08");} cell_fall(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.08");}}}}
+  cell(NAND2_X2) { area:3; pin(A){direction:input;} pin(B){direction:input;} pin(Y){direction:output; function:"!(A*B)"; timing(){related_pin:"A"; timing_type:combinational; cell_rise(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.05");} cell_fall(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.05");}}}}
+  cell(NOR2_X1) { area:2; pin(A){direction:input;} pin(B){direction:input;} pin(Y){direction:output; function:"!(A+B)"; timing(){related_pin:"A"; timing_type:combinational; cell_rise(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.09");} cell_fall(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.09");}}}}
+  cell(NOR2_X2) { area:3; pin(A){direction:input;} pin(B){direction:input;} pin(Y){direction:output; function:"!(A+B)"; timing(){related_pin:"A"; timing_type:combinational; cell_rise(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.06");} cell_fall(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.06");}}}}
+  cell(BUF_X2) { area:2; pin(A){direction:input;} pin(Y){direction:output; function:"A"; timing(){related_pin:"A"; timing_type:combinational; cell_rise(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.04");} cell_fall(delay_template_1x1){index_1("0.05"); index_2("0.02"); values("0.04");}}}}
+  cell(DFF_X1) { area:4; ff(IQ,Q){clocked_on:CP; next_state:"D";} pin(D){direction:input;} pin(CP){direction:input; clock: true;} pin(Q){direction:output; function:"IQ";} }
+}
