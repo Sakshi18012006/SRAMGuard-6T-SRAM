@@ -1,0 +1,4 @@
+stage,clock_period_ns,setup_wns_ns,setup_tns_ns,hold_wns_ns,status
+baseline,1.00,-0.080,-0.320,0.060,FAIL_SETUP
+eco1,1.00,0.230,0.000,0.060,PASS
+eco2,1.00,0.230,0.000,0.060,PASS
