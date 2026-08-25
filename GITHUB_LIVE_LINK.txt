@@ -1,0 +1,8 @@
+SRAMGuard – 6T SRAM Cell Stability and Variation Analysis
+
+GitHub Repository (Live):
+https://github.com/Sakshi18012006/SRAMGuard-6T-SRAM
+
+Repository visibility: Public
+
+This file is included as the live GitHub link required for internship submission.
