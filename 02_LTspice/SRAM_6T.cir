@@ -1,0 +1,31 @@
+* SRAMGuard - educational 6T SRAM cell
+* Generic MOS models: replace with a technology model for technology-specific results.
+* Nodes: VDD Q QB BL BLB WL 0
+
+.param VDDVAL=1
+VDD vdd 0 {VDDVAL}
+
+* Word-line: high enables access devices
+VWL wl 0 PULSE(0 {VDDVAL} 20n 100p 100p 20n 40n)
+
+* Bit-line sources for demonstration. During real read/write tests these should
+* be changed to the desired precharge/data sequence.
+VBL bl 0 {VDDVAL}
+VBLB blb 0 {VDDVAL}
+
+* Cross-coupled inverter pair
+M1 vdd qb q vdd PMOS L=180n W=360n
+M2 vdd q qb vdd PMOS L=180n W=360n
+M3 q qb 0 0 NMOS L=180n W=720n
+M4 qb q 0 0 NMOS L=180n W=720n
+
+* Access/pass devices
+M5 q wl bl 0 NMOS L=180n W=360n
+M6 qb wl blb 0 NMOS L=180n W=360n
+
+.model NMOS NMOS (LEVEL=1 VTO=0.45 KP=120u GAMMA=0.4 PHI=0.7 LAMBDA=0.02)
+.model PMOS PMOS (LEVEL=1 VTO=-0.45 KP=50u GAMMA=0.4 PHI=0.7 LAMBDA=0.02)
+
+.op
+.tran 10p 80n
+.end
