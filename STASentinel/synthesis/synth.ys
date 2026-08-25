@@ -1,0 +1,13 @@
+# Yosys synthesis script
+read_verilog ../rtl/stasentinel_core.v
+hierarchy -top stasentinel_core
+proc
+opt
+memory_map
+opt
+techmap
+opt
+abc -liberty ../library/stasentinel_cells.lib
+clean
+write_verilog -noattr -noexpr synthesized_netlist.v
+stat
